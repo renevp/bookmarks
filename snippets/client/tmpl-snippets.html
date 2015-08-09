@@ -19,16 +19,23 @@
             <textarea name="description"
             rows="3"
             class="form-control editing"
-            value={{desc}}></textarea>
+            value={{desc}}
+            placeholder="Add description..."></textarea>
         {{else}}
-            {{desc}}
+            {{#if desc}}
+                {{desc}}
+            {{else}}
+                Add description...
+            {{/if}}
         {{/if}}
     </div>
     {{#if isLink}}
     <div class="panel-body">
     <img src="{{URLImage}}"> 
     </div>
-    <a href="{{URL}}" class="btn btn-info" role="button">Link</a>
+    <div class="panel-body">
+    <a href="{{URL}}" class="btn btn-info" role="button">Link</a> 
+    </div>
     {{/if}}
     </div>
     {{/masonryElement}}

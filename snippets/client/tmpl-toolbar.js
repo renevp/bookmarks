@@ -10,9 +10,24 @@ Template.toolbar.events({
 
 function addSnippet(){
     var txtNode = $('#txtAdd');
-    if(!txtNode || !txtNode.val() || !Meteor.userId()) return;
-    Snippets.insert({
+    var urlSnippet = {};
+
+    if(!txtNode || !txtNode.val().trim() || !Meteor.userId()) return;
+    if(txtNode.val().indexOf('http') == 0){
+        urlSnippet = txtNode;
+    }
+    var id = Snippets.insert({
         text:txtNode.val(),
-        owner:Meteor.userId()});
-    txtNode.val(' ');
+        owner:Meteor.userId(),
+        URL: urlSnippet.val()});
+    
+    Meteor.call('getURLImage', urlSnippet.val(), function(err, results){
+        if(err){
+            console.log(err);
+        }
+        
+        Snippets.update({_id:id}, {$set:{URLImage: results.image}});
+    });
+    
+    txtNode.val('');
 }

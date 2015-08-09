@@ -25,7 +25,7 @@ Template.snippet.events({
         }
         
         // required submit = Shift + Enter...
-        if(e.keyCode != 13 || !e.shiftKey) return;
+        if(e.keyCode != 13 /*|| !e.shiftKey*/) return;
         
         Snippets.update({_id: this._id}, {$set:{desc:e.currentTarget.value}});
         Session.set('currentEdit', null);

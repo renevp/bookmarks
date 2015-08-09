@@ -10,3 +10,5 @@ accounts-password
 ian:accounts-ui-bootstrap-3
 voodoohop:masonrify
 iron:router
+http
+jquery
