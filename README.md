@@ -1,0 +1,2 @@
+# snippets
+Meteor Web Application.
