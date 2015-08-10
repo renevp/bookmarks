@@ -4,3 +4,5 @@ Meteor.subscribe('snippets');
 Router.configure({
     layoutTemplate: 'main'
 });
+
+$('.remove').click();

@@ -1,6 +1,6 @@
 Template.snippets.helpers({
 	snippets : function(){
-		return Snippets.find().fetch();
+        return Snippets.find().fetch().reverse();
 	}
 });
 
@@ -29,5 +29,8 @@ Template.snippet.events({
         
         Snippets.update({_id: this._id}, {$set:{desc:e.currentTarget.value}});
         Session.set('currentEdit', null);
+    },
+    'click .remove' : function(e){
+        var del = Snippets.remove({_id: this._id});
     }
 });

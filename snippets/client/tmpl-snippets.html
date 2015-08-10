@@ -12,7 +12,11 @@
     {{#masonryElement 'MasonryContainer'}}
     <div class="snippet panel panel-success">
     <div class="panel-heading">
-        <h3 class="panel-title">{{text}}</h3>
+        <h3 class="panel-title">
+            <a href="#" id="{{_id}}" class="remove">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </a>&nbsp;&nbsp;&nbsp;{{text}}           
+        </h3>
     </div>
     <div class="panel-body desc">
         {{#if editing}}
@@ -31,10 +35,10 @@
     </div>
     {{#if isLink}}
     <div class="panel-body">
-    <img src="{{URLImage}}"> 
+        <img src="{{URLImage}}"> 
     </div>
     <div class="panel-body">
-    <a href="{{URL}}" class="btn btn-info" role="button">Link</a> 
+        <a href="{{URL}}" class="btn btn-info" role="button">Link</a> 
     </div>
     {{/if}}
     </div>

@@ -13,6 +13,9 @@ Snippets.allow({
     },
     update: function(userId, fields){
         return(userId); // make sure the user is logged
+    },
+    remove: function(userId, fields){
+        return(userId); // make sure the user is logged
     }
 })
 

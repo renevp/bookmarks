@@ -1,10 +1,12 @@
 Template.toolbar.events({
-    'click #btnAdd': function(e){
+    'click #btnAdd': function(e,template){
         addSnippet();
+        template.find("form").reset(); 
     },
-    'keypress #txtAdd': function(e){
+    'keypress #txtAdd': function(e,template){
         if(e.keyCode != 13) return;
         addSnippet();
+        template.find("form").reset(); 
     }
 });
 
@@ -29,5 +31,6 @@ function addSnippet(){
         Snippets.update({_id:id}, {$set:{URLImage: results.image}});
     });
     
-    txtNode.val('');
+    console.log('Snippet added...');
+    
 }
