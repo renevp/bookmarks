@@ -1,2 +1,2 @@
-# snippets
+# Bookmarks
 Meteor Web Application.
