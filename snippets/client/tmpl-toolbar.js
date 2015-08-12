@@ -1,16 +1,16 @@
 Template.toolbar.events({
-    'click #btnAdd': function(e,template){
-        addSnippet();
-        template.find("form").reset(); 
+    'click #btnAdd': function(e){
+        addSnippet(e);
     },
-    'keypress #txtAdd': function(e,template){
+    'keypress #txtAdd': function(e){
         if(e.keyCode != 13) return;
-        addSnippet();
-        template.find("form").reset(); 
+        addSnippet(e);
     }
 });
 
-function addSnippet(){
+function addSnippet(event){
+    event.preventDefault();
+    
     var txtNode = $('#txtAdd');
     var urlSnippet = {};
 
@@ -33,4 +33,5 @@ function addSnippet(){
     
     console.log('Snippet added...');
     
+    txtNode.val("");
 }
